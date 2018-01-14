@@ -1,0 +1,18 @@
+module.exports =  () => {
+	return async function errorHandler(ctx, next){
+		try{
+			await next();
+		}catch (err){
+			ctx.app.emit('error', err, ctx);
+			const status = err.status || 500;
+			//生产环境下的500的错误不返回给客户端因为携带敏感信息
+			const error = status === 500 && ctx.app.config.env === 'prod'? 'Internal Server Error': err.message;
+			//从error对象上读出各个属性，设置到响应中
+			ctx.body = { error };
+			if (status === 422) {
+			ctx.body.detail = err.errors;
+			}
+			ctx.status = status;
+		}
+	}
+}

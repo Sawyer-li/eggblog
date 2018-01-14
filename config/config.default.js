@@ -7,7 +7,11 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1514614343202_7144';
 
   // add your config here
-  config.middleware = [];
+  config.middleware = ['errorHandler'];
+  config.errorHandler = {
+    match: '/api',
+  }
+  
   config.view = {
     defaultViewEngine: 'nunjucks',
     mapping: {
@@ -33,6 +37,6 @@ module.exports = appInfo => {
     // 是否加载到 agent 上，默认关闭
     agent: false,
   };
-
+  //配置安全项
   return config;
 };

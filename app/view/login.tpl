@@ -37,17 +37,17 @@
     </style>
 </head>
 <body>
-	<canvas id="canvas"></canvas>
-	<div class="container">
-		<div class="form row" id="login_form">
-			<form class="form-horizontal col-sm-offset-3 col-md-offset-3" >  
-				<h3 class="form-title">login to your account</h3>
-				<div class="col-sm-9 col-md-9">
-					<div class="form-group">
-						<i class="fa fa-user fa-lg"></i>  
-						<input type="text" class="form-control required" placeholder="username" autofocus="autofocus" maxlength="20">
-					</div>
-					<div class="form-group">  
+  <canvas id="canvas"></canvas>
+  <div class="container">
+    <div class="form row" id="login_form">
+      <form class="form-horizontal col-sm-offset-3 col-md-offset-3" >  
+        <h3 class="form-title">login to your account</h3>
+        <div class="col-sm-9 col-md-9">
+          <div class="form-group">
+            <i class="fa fa-user fa-lg"></i>  
+            <input type="text" class="form-control required" placeholder="username" autofocus="autofocus" maxlength="20">
+          </div>
+          <div class="form-group">  
             <i class="fa fa-lock fa-lg"></i>  
             <input class="form-control required" type="password" placeholder="Password" name="password" maxlength="8"/>  
           </div>
@@ -61,37 +61,38 @@
           <div class="form-group">  
               <input type="submit" class="btn btn-success pull-right" value="Login "/>     
           </div>  
-				</div>
-			</form>
-		</div>
+        </div>
+      </form>
+    </div>
     <div class="form row" id="register_form">  
         <form class="form-horizontal col-sm-offset-3 col-md-offset-3" >  
             <h3 class="form-title">Login to your account</h3>  
             <div class="col-sm-9 col-md-9">  
                 <div class="form-group">  
-                    <i class="fa fa-user fa-lg"></i>  
-                    <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus"/>  
+                  <i class="fa fa-user fa-lg"></i>  
+                  <input class="form-control required" type="text" placeholder="Username" id="register_username" name="username" autofocus="autofocus"/>  
                 </div>  
                 <div class="form-group">  
-                        <i class="fa fa-lock fa-lg"></i>  
-                        <input class="form-control required" type="password" placeholder="Password" id="register_password" name="password"/>  
+                  <i class="fa fa-lock fa-lg"></i>  
+                  <input class="form-control required" type="password" placeholder="Password" id="register_password" name="password"/>  
                 </div>  
                 <div class="form-group">  
-                        <i class="fa fa-check fa-lg"></i>  
-                        <input class="form-control required" type="password" placeholder="Re-type Your Password" name="rpassword"/>  
+                  <i class="fa fa-check fa-lg"></i>  
+                  <input class="form-control required" id="register_password1" type="password" placeholder="Re-type Your Password" name="rpassword"/>  
                 </div>  
                 <div class="form-group">  
-                        <i class="fa fa-envelope fa-lg"></i>  
-                        <input class="form-control eamil" type="text" placeholder="Email" name="email"/>  
+                  <i class="fa fa-envelope fa-lg"></i>  
+                  <input class="form-control eamil" id="register_email" type="text" placeholder="Email" name="email"/>  
                 </div>  
                 <div class="form-group">  
-                    <input type="submit" class="btn btn-success pull-right" value="Sign Up "/>  
-                    <input type="submit" class="btn btn-info pull-left" id="back_btn" value="Back"/>  
+                  <input type="button" class="btn btn-success pull-right" value="Sign Up "/>  
+                  <input type="submit" class="btn btn-info pull-left" id="back_btn" value="Back"/>  
                 </div>  
             </div>  
         </form>  
     </div> 
-	</div>
+  </div>
+  <script src="/public/jquery.cookie.js" type="text/javascript"></script>
   <script type="text/javascript" src="/public/js/login.js"></script>
 </body>
 </html>

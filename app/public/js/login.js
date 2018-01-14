@@ -60,11 +60,48 @@ function makeItSnow() {
     }
   }
 }
-
-
 window.addEventListener('resize', function(){
   c.width = w = window.innerWidth;
   c.height = h = window.innerHeight;
 }, false);
-
 makeItSnow();
+
+//防止csrf,取出cookie中的token放到请求头
+var csrftoken = jQuery.cookie('csrfToken');
+function csrfSafeMethod(method) {
+  // these HTTP methods do not require CSRF protection
+  return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+jQuery.ajaxSetup({
+  beforeSend: function(xhr, settings) {
+    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+      xhr.setRequestHeader('x-csrf-token', csrftoken);
+    }
+  },
+});
+jQuery('#register_form .btn-success').click(function(){
+  var username = jQuery('#register_username').val();
+  var email = jQuery('#register_email').val();
+  var pass = jQuery('#register_password').val();
+  var _pass = jQuery('#register_password1').val();
+  console.log(username,email,pass,_pass);
+  jQuery.ajax({
+    url: '/user',
+    type: 'get',
+    dataType: 'json',
+    data: {
+      username: username,
+      email: email,
+      pass: pass
+    }
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+})
