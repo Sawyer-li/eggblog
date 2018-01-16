@@ -86,8 +86,8 @@ jQuery('#register_form .btn-success').click(function(){
   var _pass = jQuery('#register_password1').val();
   console.log(username,email,pass,_pass);
   jQuery.ajax({
-    url: '/user',
-    type: 'get',
+    url: '/api/user',
+    type: 'POST',
     dataType: 'json',
     data: {
       username: username,
